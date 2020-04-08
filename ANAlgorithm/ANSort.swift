@@ -115,4 +115,31 @@ class ANSort: NSObject {
           return result
       }
     
+    //哈希排序
+    func hashSort(nums:[Int],max:Int) -> [Int] {
+    
+        var indxArray = [Int]()
+        var result = [Int]()
+        for _ in 0..<max {
+            indxArray.append(0)
+        }
+        for i in 0..<nums.count {
+            indxArray[nums[i]] += 1
+        }
+        
+        for i in 0..<max {
+            var count = indxArray[i]
+            while count>0 {
+                result.append(i)
+                count -= 1
+            }
+            
+        }
+
+        return result
+    }
+        
+    
+    
+    
 }
