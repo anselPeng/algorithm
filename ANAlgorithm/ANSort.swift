@@ -135,11 +135,81 @@ class ANSort: NSObject {
             }
             
         }
-
         return result
     }
         
+    //选择排序 找到第n小的数放到第n-1位
+    func selectSort(nums:[Int]) -> [Int] {
+        var result = nums
+        for i in 0..<result.count {
+            var minIdex = i
+            
+            for j in i+1..<result.count {
+                if result[minIdex]>result[j] {
+                    minIdex = j
+                }
+            }
+            if i != minIdex {
+                let temp = result[i]
+                result[i] = result[minIdex]
+                result[minIdex] = temp
+                
+            }
+            
+        }
+        return result;
+    }
+    
+    //堆排序
+    func sortHeap(nums:[Int]) -> [Int] {
+        var result = nums;
+        
+        let len = result.count
+        var begin = len/2-1
+        
+        while begin>=0 {
+            result = heepfy(nums: result, i: begin, len: len)
+            begin -= 1
+        }
+        
+        
+        var end = len-1
+        while end>=0 {
+            let t = result[0]
+            result[0] = result[end]
+            result[end] = t
+           result = heepfy(nums: result, i: 0, len: end)
+            end -= 1
+        }
+        return result;
+    }
     
     
-    
+    func heepfy(nums:[Int],i:Int,len:Int) ->  [Int]{
+        var result = nums
+        var parent = i
+        var left = parent*2+1
+        var right = left+1
+        
+        while left<len {
+            var max = left
+            if right<len && result[right]>result[left] {
+                max = right
+            }
+            
+            if result[max]>result[parent] {
+                let t = result[max]
+                result[max] = result[parent]
+                result[parent] = t
+                parent = max
+                left = parent*2+1
+                right = left+1
+
+            }else{
+                break;
+            }
+
+        }
+        return result;
+    }
 }

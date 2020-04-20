@@ -17,12 +17,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         //排序算法
         let sort = ANSort()
-        let array = [2,3,5,1,10,6,11]
+        let array = [2,3,5,1,10,6,11,-1,100,80,99,25]
        // print(sort.hell(nums: array))
         print("****排序算法*****")
-        print(sort.hashSort(nums: array, max: 12))
-        
+      //  print(sort.hashSort(nums: array, max: 12))
+      //  print(sort.selectSort(nums: array))
+        print(sort.sortHeap(nums: array))
       
+        
         //三数之和
          print("****三数之和*****")
         let threeSum = ANThreeSums()
