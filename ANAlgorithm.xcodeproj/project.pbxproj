@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B5D216C24A0A75B00950010 /* ANBilateralNodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D216B24A0A75B00950010 /* ANBilateralNodeList.swift */; };
 		6BA4932A249CBC7C0039BF7F /* ANNodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA49327249CBC7B0039BF7F /* ANNodeList.swift */; };
 		6BA4932B249CBC7C0039BF7F /* ANFib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA49328249CBC7B0039BF7F /* ANFib.swift */; };
 		6BA4932C249CBC7C0039BF7F /* ANDynamicArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA49329249CBC7B0039BF7F /* ANDynamicArray.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B5D216B24A0A75B00950010 /* ANBilateralNodeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANBilateralNodeList.swift; sourceTree = "<group>"; };
 		6BA49327249CBC7B0039BF7F /* ANNodeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANNodeList.swift; sourceTree = "<group>"; };
 		6BA49328249CBC7B0039BF7F /* ANFib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANFib.swift; sourceTree = "<group>"; };
 		6BA49329249CBC7B0039BF7F /* ANDynamicArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANDynamicArray.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				6BA49329249CBC7B0039BF7F /* ANDynamicArray.swift */,
 				6BA49328249CBC7B0039BF7F /* ANFib.swift */,
 				6BA49327249CBC7B0039BF7F /* ANNodeList.swift */,
+				6B5D216B24A0A75B00950010 /* ANBilateralNodeList.swift */,
 			);
 			path = ANAlgorithm;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				872F5B80243AD6C3007CF601 /* AppDelegate.swift in Sources */,
 				6BA4932C249CBC7C0039BF7F /* ANDynamicArray.swift in Sources */,
 				872F5B96243ADEFC007CF601 /* ANThreeSums.swift in Sources */,
+				6B5D216C24A0A75B00950010 /* ANBilateralNodeList.swift in Sources */,
 				872F5B94243ADDB0007CF601 /* ANSort.swift in Sources */,
 				6BA4932A249CBC7C0039BF7F /* ANNodeList.swift in Sources */,
 				6BA4932B249CBC7C0039BF7F /* ANFib.swift in Sources */,

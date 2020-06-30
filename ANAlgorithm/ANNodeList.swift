@@ -169,8 +169,88 @@ public class ListNode {
         return nil
     }
     
+    /*
+     82. 删除排序链表中的重复元素 II
+     https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
+     给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
+
+     示例 1:
+
+     输入: 1->2->3->3->4->4->5
+     输出: 1->2->5
+     示例 2:
+
+     输入: 1->1->1->2->3
+     输出: 2->3
+     解题关键在于 申请一个头节点 处理边界问题，申请一个变量保存上一个节点，
+     */
+    func deleteDuplicates(_ head: ListNode?) -> ListNode? {
+        if head?.next == nil {
+            return head
+        }
+        let myHead:ListNode = ListNode(0)
+        myHead.next = head
+        var current = myHead.next
+        var previous:ListNode = myHead
+        
+        while current?.next != nil {
+            if current?.val == current?.next?.val {
+                while current?.val == current?.next?.val  {
+                    current?.next = current?.next?.next
+                }
+                previous.next = current?.next
+                current = current?.next
+                
+            } else {
+                previous = current!
+                current = current?.next
+            }
+        }
+        return myHead.next
+       }
     
-    
-    
+    /*
+     1171. 从链表中删去总和值为零的连续节点
+    https://leetcode-cn.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+     给你一个链表的头节点 head，请你编写代码，反复删去链表中由 总和 值为 0 的连续节点组成的序列，直到不存在这样的序列为止。
+
+     删除完毕后，请你返回最终结果链表的头节点。
+
+     你可以返回任何满足题目要求的答案。
+     */
+
+
+    func removeZeroSumSublists(_ head: ListNode?) -> ListNode? {
+        
+        let myHead = ListNode(0)
+        myHead.next = head
+        var map = Dictionary<Int,ListNode>()
+        var sum = 0
+        var node:ListNode? = myHead
+        //遍历第一遍，记录每个sum值出现的最后一个节点
+        while node != nil {
+            sum += node!.val
+            map.updateValue(node!, forKey: sum)
+            node = node?.next
+        }
+        if sum == 0 {
+            return nil
+        }
+        sum = 0
+        node = myHead
+        //遍历第二遍，删除sum值重复出现的中间节点
+        while node != nil {
+            sum += node!.val
+            node?.next = map[sum]?.next
+            node = node?.next
+        }
+        return myHead.next
+      }
 }
+
+
+
+
+
+
 
