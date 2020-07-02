@@ -61,10 +61,10 @@ class ViewController: UIViewController {
 
     func nodeTest() {
         print("****nodeTest begin*****")
-       let node = ListNode(array: [0,2])
+       let node = ListNode(array:[2,1,3,5,6,4,7])
        // let reverseNode = node.reverseList(node)
        // let reverseNode = node.reverseListRecursion(node)
-        let newNode = node.removeZeroSumSublists(node)
+        let newNode = node.oddEvenList(node)
         newNode?.printList()
         print("*********")
       //  newNode.printList()

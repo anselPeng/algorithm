@@ -246,6 +246,108 @@ public class ListNode {
         }
         return myHead.next
       }
+    
+    /*
+     328. 奇偶链表
+     https://leetcode-cn.com/problems/odd-even-linked-list/
+
+     给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。
+
+     请尝试使用原地算法完成。你的算法的空间复杂度应为 O(1)，时间复杂度应为 O(nodes)，nodes 为节点总数。
+/Users/penganzhong/Desktop/algorithm/ANAlgorithm/ANSort.swift     */
+    
+    func oddEvenList(_ head: ListNode?) -> ListNode? {
+        if head == nil {
+            return nil
+        }
+        var node:ListNode? = head
+        let oddListHead:ListNode = ListNode(0);
+        let evenListHead:ListNode = ListNode(0);
+        
+        var curOddList:ListNode? = oddListHead;
+        var curEvenList:ListNode? = evenListHead;
+        var idx = 1
+        while node != nil {
+            
+            let temp = node?.next
+            node?.next  = nil
+            if isOdd(num: idx) {
+                curOddList?.next = node
+                curOddList = curOddList?.next
+            }else{
+                curEvenList?.next = node
+                curEvenList = curEvenList?.next
+            }
+            idx += 1
+            node = temp
+        }
+        curOddList?.next = evenListHead.next
+        return oddListHead.next
+    }
+    
+    func isOdd(num:Int) -> Bool {
+        return num%2 > 0
+    }
+    
+    
+    /*
+     160. 相交链表
+     https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+     编写一个程序，找到两个单链表相交的起始节点。
+     
+     
+     */
+    
+    func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
+
+        
+        if headA == nil
+        || headB == nil{
+            return nil
+        }
+        
+        var pA = headA
+        var pB = headB
+        var lastA:ListNode?
+        var lastB:ListNode?
+        
+        /*
+    
+         在pA到达链表尾部时将pA从定向为HeadB
+         在pB到达链表尾部时将pB从定向为HeadA
+         如果他们有交点。必定在下一轮遍历时相遇
+         
+          假设 headA链表比headB短3个
+         那么 当pA到达尾部时会比pB到达尾部时少走3步，、
+         当pA从定向为headB、pB从定向为headA后，pA会比pB走到第一个相同节点时多走3步，俩轮下来，pA跟pB走到相同节点的步数相等，所以，他们会相遇。
+         
+         */
+        while pA !== pB {
+            
+            if pA?.next == nil {
+                lastA = pA!
+                pA = headB
+            }else{
+                pA = pA?.next
+            }
+            if pB?.next == nil {
+                lastB = pB!
+                pB = headA
+            }else{
+                pB = pB?.next
+            }
+            if (lastA != nil) && (lastB != nil) && (lastA !== lastB){
+                return nil
+            }
+            
+        }
+        return pA
+    }
+    
+    
+    
+    
+    
 }
 
 
