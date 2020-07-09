@@ -61,10 +61,17 @@ class ViewController: UIViewController {
 
     func nodeTest() {
         print("****nodeTest begin*****")
-       let node = ListNode(array:[2,1,3,5,6,4,7])
+       let node = ListNode(array:[1,2,3,4,5])
        // let reverseNode = node.reverseList(node)
        // let reverseNode = node.reverseListRecursion(node)
-        let newNode = node.oddEvenList(node)
+//        var n:ListNode? = node
+//        while n != nil {
+//            n?.random = node.next
+//            n = n!.next
+//        }
+        //node.random  = nil
+        
+        let newNode = node.reverseKGroup1(node, 3)
         newNode?.printList()
         print("*********")
       //  newNode.printList()
